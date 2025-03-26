@@ -1,1 +1,1 @@
-# Inspired from [Wotaku](https://wotaku.wiki/)
+# 🌸 Inspired from [Wotaku](https://wotaku.wiki/)
