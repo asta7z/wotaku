@@ -1,3 +1,3 @@
-# [Mine](wotaku.vercel.app)
+## 🌸 [Mine](https://wotaku.vercel.app)
 
-# 🌸 Inspired from [Wotaku](https://wotaku.wiki/)
+## 🌸 Inspired from [Wotaku](https://wotaku.wiki/)
