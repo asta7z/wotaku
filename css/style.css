@@ -1,0 +1,421 @@
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter_18pt-Regular.ttf');
+}
+@font-face {
+    font-family: "Inter Semi Bold";
+    src: url('/assets/fonts/Inter_18pt-SemiBold.ttf');
+}
+
+:root {
+    --os-logo: rgb(223 223 214);
+    --os-search: rgb(23 23 23);
+    --os-search-text: rgba(223, 223, 214, 0.6);
+    --os-white: rgb(215, 215, 215);
+    --os-search-hover: #7bc5e4;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    user-select: none;
+}
+
+body {
+    background: #1a1a1a;
+    font-family: "Inter";;
+}
+
+* ul {
+    list-style: none;
+}
+
+* a {
+    text-decoration: none;
+}
+
+.app {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+    "cont cont cont cont cont cont cont cont cont cont cont"
+    "misc misc misc misc misc misc misc misc misc misc misc"
+    "foot foot foot foot foot foot foot foot foot foot foot";
+}
+
+header {
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    display: grid;
+    grid-area: head;
+    grid-template-columns: repeat(12, auto);
+    grid-template-areas: "logo search search . . nav nav nav nav nav icons guide";
+    padding: 0 30px;
+    border-bottom: 1px solid transparent;
+    z-index: 1;
+}
+
+.app header .logo img {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+}
+
+.app header a.logo {
+    color: var(--os-logo);
+    text-transform: capitalize;
+    font-size: 18px;
+    font-family: 'Inter Semi Bold';
+    display: flex;
+    align-items: center;
+    grid-area: logo;
+}
+
+.app header button.search {
+    background-color: var(--os-search);
+    color: var(--os-search-text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    width: 115%;
+    text-transform: capitalize;
+    height: 60%;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.app header button.search:hover {
+    border: 1px solid var(--os-search-hover);
+}
+
+.app header button.search:hover span {
+    color: rgb(223, 223, 214);
+}
+
+.app header button.search i {
+    margin-right: 5px;
+}
+
+.app header button.search div {
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.app header .navigation {
+    align-self: center;
+    grid-area: nav;
+    height: max-content;
+}
+
+.app header .navigation {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    font-family: "Inter";
+}
+
+.app header .navigation button {
+    position: relative;
+    font-size: 14px;
+    text-transform: capitalize;
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--os-white);
+    padding: 20px 10px;
+    font-family: "Inter Semi Bold";
+}
+
+.app header .navigation button:hover span {
+    color: rgba(215, 215, 215, 0.7);
+}
+
+.app header .navigation button i {
+    font-size: 10px;
+    margin-left: 6px;
+    margin-top: 2px;
+    align-self: center;
+    font-weight: 100;
+}
+
+.app header .navigation button.menu ul.submenu {
+    position: absolute;
+    margin: 0;
+    transform: translateY(30px);
+    background-color: #202127;
+    border: 1px solid #2e2e32;
+    border-radius: 12px;
+    padding: 10px;
+    display: none;
+    right: 0;
+    cursor: default;
+    max-width: min-content;
+}
+
+.app header .navigation button.menu ul.submenu li {
+    text-align: start;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-family: "Inter Semi Bold";
+    color: #dfdfd6;
+    text-wrap: nowrap;
+}
+
+.app header .navigation button.menu ul.submenu li:hover {
+    cursor: pointer;
+    background: rgb(43 47 54);
+    color: var(--os-search-hover);
+}
+
+.app header .navigation button:hover ul.submenu {
+    display: block;
+}
+
+.app header .dark-light {
+    grid-area: ap-mode;
+}
+
+.app header .socials {
+    position: relative;
+    align-self: center;
+    grid-area: icons;
+    width: max-content;
+}
+
+.app header .socials::before,
+.app header .socials::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.064);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.app header .socials::before {
+    left: -20px;
+}
+
+.app header .socials::after {
+    right: -20px;
+}
+
+.app header .socials a {
+    color: var(--os-search-text);
+    margin: 0 3px;
+    font-size: 20px;
+}
+
+.app header .socials a:hover,
+.app header .guide a:hover i {
+    color: rgb(223, 223, 214);
+}
+
+.app header .guide {
+    align-self: center;
+    justify-self: center;
+    grid-area: guide;
+}
+
+.app header .guide i {
+    color: var(--os-search-text);
+}
+
+.app .heading {
+    grid-area: cont;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 85%;
+    margin: 80px auto 10px auto;
+    height: 60%;
+}
+
+.app .heading .left-side {
+    display: grid;
+    padding: 50px 0;
+    /* background-color: red; */
+    height: 100%;
+    row-gap: 20px;
+    grid-template-rows: 10% 60% auto ;
+}
+
+.app .heading .left-side .top-btn button {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 7px;
+    font-family: "Inter Semi Bold";
+    padding: 5px 15px;
+    color: #dfdfd6;
+    border: none;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.app .heading .left-side h1 {
+    font-size: 57px;
+    font-family: "Inter";
+    font-weight: bolder;
+    color: rgb(223 223 214);
+    letter-spacing: -1px;
+}
+
+.app .heading .left-side h1 span {
+    color: transparent;
+    background-image: -webkit-linear-gradient(0deg, rgb(89 196 242), rgb(27 124 232));
+    -webkit-background-clip: text;
+    background-clip: text
+}
+
+.app .heading .left-side div.bottom-btns button {
+    background: transparent;
+    border: 1px solid #32363f;
+    padding: 10px 20px;
+    color: #dfdfd6;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-family: "Inter Semi Bold";
+    border-radius: 100px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.app .heading .left-side div.bottom-btns button:hover {
+    border-color: #515c67;
+}
+
+.app .heading .left-side div.bottom-btns button.active {
+    color: rgb(26, 26, 26);
+    background-color: #1473e6;
+    border-color: transparent;
+}
+
+.app .heading .left-side div.bottom-btns button.active:hover {
+    background-color: rgb(123 197 228);
+}
+
+.app .heading .right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app .heading .right-side img {
+    width: 340px;
+    position: relative;
+}
+
+.app .heading .right-side .glow-effect {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 100%;
+    box-shadow: 0 0 320px 120px rgb(104, 202, 255);
+}
+
+.app .misc {
+    grid-area: misc;
+    display: grid;
+    width: 100%;
+    column-gap: 12px;
+    grid-template-columns: repeat(4, 21%);
+    margin: 0 auto;
+    height: 200px;
+    justify-content: center;
+}
+
+.app .misc a {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 1fr 30%;
+    background-color: rgb(32 33 39);
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding: 25px;
+    color: #dfdfd6;
+}
+
+.app .misc a:hover {
+    border-color: var(--os-search-hover);
+}
+
+.app .misc a .icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.app .misc a .icon i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.app .misc a span {
+    font-size: 16px;
+    font-family: "Inter Semi Bold";
+    text-transform: capitalize;
+}
+
+.app .misc a p {
+    color: #98989f;
+    font-size: 14px;
+    width: 95%;
+    line-height: 23px;
+    display: flex;
+    align-items: start;
+}
+
+.app footer {
+    grid-area: foot;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+    padding: 10px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.app footer a {
+    color: #98989f;
+    text-decoration: underline;
+}
+
+.app footer div.links {
+    display: flex;
+    align-items: center;
+}
+
+.app footer div.links div.breakline {
+    margin: 0 5px;
+    height: 18px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.064);
+}
+
+.app footer  div.links a:hover {
+    color: rgb(223, 223, 214);;
+}
+
+.app footer p {
+    color: #98989f;
+}
