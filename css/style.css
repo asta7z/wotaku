@@ -115,9 +115,6 @@ header {
     align-self: center;
     grid-area: nav;
     height: max-content;
-}
-
-.app header .navigation {
     display: flex;
     align-items: center;
     align-content: center;
@@ -149,7 +146,7 @@ header {
     font-weight: 100;
 }
 
-.app header .navigation button.menu ul.submenu {
+.app header .menu ul.submenu {
     position: absolute;
     margin: 0;
     transform: translateY(30px);
@@ -163,7 +160,7 @@ header {
     max-width: min-content;
 }
 
-.app header .navigation button.menu ul.submenu li {
+.app header .menu ul.submenu li {
     text-align: start;
     padding: 5px 10px;
     border-radius: 6px;
@@ -173,13 +170,13 @@ header {
     text-wrap: nowrap;
 }
 
-.app header .navigation button.menu ul.submenu li:hover {
+.app header .menu ul.submenu li:hover {
     cursor: pointer;
     background: rgb(43 47 54);
     color: var(--os-search-hover);
 }
 
-.app header .navigation button:hover ul.submenu {
+.app header button:hover ul.submenu {
     display: block;
 }
 
@@ -413,9 +410,82 @@ header {
 }
 
 .app footer  div.links a:hover {
-    color: rgb(223, 223, 214);;
+    color: rgb(223, 223, 214);
 }
 
 .app footer p {
     color: #98989f;
+}
+
+.resp-menu {
+    grid-area: resp-menu;
+    display: none;
+    align-items: center;
+}
+
+button.resp-menu {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    justify-content: center;
+}
+
+.resp-menu span i {
+    color: #98989f;
+    font-size: 18px;
+}
+
+.resp-menu ul.submenu li a {
+    color: #98989f;
+    text-transform: capitalize;
+}
+
+.resp-menu:hover span i {
+    color: rgb(223, 223, 214);
+}
+
+.app header .resp-menu ul.submenu {
+    position: absolute;
+    margin: 0;
+    transform: translate(-50%, 10px);
+    background-color: #202127;
+    border: 1px solid #2e2e32;
+    border-radius: 12px;
+    left: 50%;
+    padding: 10px;
+    display: none;
+    cursor: default;
+    max-width: min-content;
+}
+
+.app header .resp-menu ul.submenu li {
+    text-align: start;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-family: "Inter Semi Bold";
+    color: #dfdfd6;
+    text-wrap: nowrap;
+    align-items: center;
+}
+
+.app header .resp-menu ul.submenu li i {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.app header .resp-menu ul.submenu li:hover {
+    cursor: pointer;
+    background: rgb(43 47 54);
+    color: var(--os-search-hover);
+}
+
+.app header .resp-menu ul.submenu li:hover a,
+.app header .resp-menu ul.submenu li:hover a i {
+    color: var(--os-search-hover);
+}
+
+.app header button:hover ul.submenu {
+    display: block;
 }
